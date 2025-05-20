@@ -36,6 +36,8 @@ Esto levantará tanto la API como la base de datos. El proyecto estará disponib
 docker compose exec rails_api rails db:create
 ```
 
+Con la base de datos creada se pueden ejecutar las migraciones
+
 ```bash
 docker compose exec rails_api rails db:migrate
 ```
