@@ -1,12 +1,12 @@
 class ShortenerController < ApplicationController
 
+  include ShortUrlHelper
+
   def index
     @urls = Url.includes(:url_visits).all
   end
 
-  def new
-   
-  end
+  def new; end
 
   def create
     @url = UrlService::Shorten.call(url_params)

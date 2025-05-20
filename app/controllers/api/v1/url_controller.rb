@@ -2,7 +2,7 @@
 module Api
   module V1
     class UrlController < ActionController::API
-
+      include ShortUrlHelper
 
       def create
         url = UrlService::Shorten.call(url_params)
