@@ -30,6 +30,12 @@ Esto levantará tanto la API como la base de datos. El proyecto estará disponib
 
 3. **Ejecutar las migraciones (en otra terminal):**
 
+ℹ️ **Nota:** Si la base de datos no se ha creado al momento de construir el contenedor es necesario ejecutar el comando:
+
+```bash
+docker compose exec rails_api rails db:create
+```
+
 ```bash
 docker compose exec rails_api rails db:migrate
 ```

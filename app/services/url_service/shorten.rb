@@ -5,32 +5,24 @@ module UrlService
     end
 
     def initialize(params)
-      @params = params
+      @original_url = params[:original_url]
     end
 
     def call
-      host = get_domain(@params[:original_url])
-      host_parts = host.split(".")
-
-      domain =
-        if host_parts.count >= 3
-          host_parts[-3]
-        else
-          host_parts[-2]
-        end
-
-      @url = Url.create!(
-        url: @params[:original_url],
-        domain: domain
+      Url.create!(
+        url: @original_url,
+        domain: extract_domain(@original_url)
       )
-
-      @url
     end
 
-    def get_domain(url)
+    private
+
+    def extract_domain(url)
       uri = URI.parse(url)
       host = uri.host.downcase
-      host.start_with?("www.") ? host[4..] : host
+      host = host[4..] if host.start_with?("www.")
+      parts = host.split(".")
+      parts.length >= 3 ? parts[-3] : parts[-2]
     end
   end
 end
