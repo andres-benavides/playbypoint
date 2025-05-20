@@ -64,6 +64,7 @@ Una vez que el contenedor esté levantado y las migraciones ejecutadas, puedes a
 
 - El proyecto se ejecuta en el puerto **3005**.
 - Asegúrate de tener Docker y Docker Compose instalados antes de comenzar.
+- También se creo un end point que tipo REST. En la rais del proyecto hay un archivo de Postman para probar el end point: [http://localhost:3005/api/v1/url](http://localhost:3005/api/v1/url)
 
 ---
 
